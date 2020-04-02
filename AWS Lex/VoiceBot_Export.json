@@ -1,0 +1,402 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "VoiceBot",
+    "version": "7",
+    "intents": [
+      {
+        "name": "Greet",
+        "version": "19",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:839266689457:function:bot1",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "start"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Nice to meet you.  How old are you?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 4,
+            "name": "age"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What is your credit score? A rough estimate is sufficient."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 9,
+            "name": "Credit"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Stringinput",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "How would your friends describe you as a person?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 11,
+            "name": "Describe"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Education",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What is the highest level of education you have achieved?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 6,
+            "name": "Edu"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Exit",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Thank you for your information. We have saved and transmitted your information to the server of our partner company."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 14,
+            "name": "Exit"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Stringinput",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What do you do in your free time?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 12,
+            "name": "FreeTime"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Stringinput",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "If somebody was to give you a present, what would you really like to get?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 13,
+            "name": "gift"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What was your entire household monthly income after taxes? A rough estimate issufficient."
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 10,
+            "name": "Income"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.US_FIRST_NAME",
+            "obfuscationSetting": "DEFAULT_OBFUSCATION",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Great! What is your first name? I would just like to know, who I am talking to."
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\"}",
+              "maxAttempts": 2
+            },
+            "priority": 3,
+            "name": "name"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Profession",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What is your profession?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 8,
+            "name": "Prod"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Ready",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Hi there! I am a virtual assistant. I am going to ask you a series of questions to create a personalized online shopper profile for you. Are you ready to begin?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "Ready"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Relationship",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What is your relationship status?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 7,
+            "name": "Relation"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "Gender",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Which gender do you identify with?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 5,
+            "name": "Sex"
+          }
+        ]
+      }
+    ],
+    "slotTypes": [
+      {
+        "name": "Ready",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "yup"
+          },
+          {
+            "value": "Yes"
+          },
+          {
+            "value": "yup i am"
+          },
+          {
+            "value": "yes i am"
+          },
+          {
+            "value": "yeah"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "Profession",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "actor"
+          },
+          {
+            "value": "doctor"
+          },
+          {
+            "value": "banker"
+          },
+          {
+            "value": "engineer"
+          },
+          {
+            "value": "dentist"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "Education",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "bachelors"
+          },
+          {
+            "value": "graduation"
+          },
+          {
+            "value": "graduate"
+          },
+          {
+            "value": "masters"
+          },
+          {
+            "value": "post doc"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "Stringinput",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "Kind"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "Relationship",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "Single"
+          },
+          {
+            "value": "Married"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "Gender",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "F"
+          },
+          {
+            "value": "Male"
+          },
+          {
+            "value": "female"
+          },
+          {
+            "value": "M"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "Exit",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "bye"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      }
+    ],
+    "voiceId": "Joanna",
+    "childDirected": false,
+    "locale": "en-US",
+    "idleSessionTTLInSeconds": 120,
+    "clarificationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, can you please repeat that?"
+        }
+      ],
+      "maxAttempts": 5
+    },
+    "abortStatement": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, I could not understand. Goodbye."
+        }
+      ]
+    },
+    "detectSentiment": true
+  }
+}

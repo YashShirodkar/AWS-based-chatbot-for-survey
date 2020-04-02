@@ -1,0 +1,70 @@
+var AWS = require("aws-sdk");
+var dynamodb = new AWS.DynamoDB();
+const docClient = new AWS.DynamoDB.DocumentClient({region :'us-east-1'});
+
+exports.handler = (event, context, callback) => {
+    var intro = event.currentIntent.slots.Ready;
+    var name = event.currentIntent.slots.name;
+    var age  = event.currentIntent.slots.age;
+    var sex  = event.currentIntent.slots.Sex;
+    var edu  = event.currentIntent.slots.Edu;
+    var relation  = event.currentIntent.slots.Relation;
+    var profession  = event.currentIntent.slots.Prod;
+    var credit  = event.currentIntent.slots.Credit;
+    var income  = event.currentIntent.slots.Income;
+    var describe  = event.currentIntent.slots.Describe;
+    var freetime  = event.currentIntent.slots.FreeTime;
+    var gift  = event.currentIntent.slots.gift;
+    var last  = event.currentIntent.slots.Last;
+
+
+    var maximum = 100000;
+    var minimum = 999999;
+
+    var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+
+    var params = {
+            Item:{
+                    Name : name,
+                    UserId:randomnumber,
+                    Age: age,
+                    Sex: sex,
+                    Education: edu,
+                    Relation: relation,
+                    Profession: profession,
+                    Credit: credit,
+                    Income: income,
+                    Describe: describe,
+                    FreeTime: freetime,
+                    Gift:gift,
+                    Last:last
+            },
+        TableName:"bot_table"
+
+        };
+       
+    docClient.put(params, function(err,data){
+        if(err){
+            callback(err,null);
+        }
+        else{
+            callback(null, data);
+        }
+    });    
+    // dynamodb.putItem(params,callback);        
+    
+    callback(null, {
+            "dialogAction" : {
+            "type": "Close",
+            "fulfillmentState" :"Fulfilled",
+            "message" : {
+                "contentType": "PlainText",
+                "content" :"Please copy the following code: " + "  "+ randomnumber + " "+ "Then return to the survey and proceed."
+                }
+            }
+        }
+    );
+} 
+
+
+
